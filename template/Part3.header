@@ -1,0 +1,40 @@
+package iso639;
+
+import java.lang.reflect.Constructor;
+
+/**
+ * Utility class for obtaining a <code>Language</code> specified by the ISO 639-3 standard.
+ * <p>
+ * The ISO 639-3 code table may be found at <a href="http://www.sil.org/iso639-3/iso-639-3_20120206.tab">http://www.sil.org/iso639-3/iso-639-3_20120206.tab</a>.
+ * 
+ * This implementation is directly derived from that file.
+ */
+public abstract class Part3 {
+
+	@SuppressWarnings("unchecked")
+	public static Language get(String iso639_part3_identifier) {
+
+		String packageName = Language.class.getPackage().getName();
+		
+		String className = packageName + "." + iso639_part3_identifier.toUpperCase();
+		
+		try {
+			
+			Class<? extends Language> c = 
+					(Class<? extends Language>) Class.forName(className);
+			
+			Constructor<? extends Language> constructor = c.getConstructor();
+			
+			Language l = constructor.newInstance();
+			
+			return l;
+			
+		} catch (Exception e) {
+			e.printStackTrace(); 
+			throw new RuntimeException("No known language was found with ISO 639.3 identifier \"" + iso639_part3_identifier + "\" from class " + className);
+		}
+		
+		
+	}
+	
+}

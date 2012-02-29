@@ -1,0 +1,6 @@
+First, download http://www.sil.org/iso639-3/iso-639-3_20120206.tab and place the file iso-639-3_20120206.tab in this directory.
+
+Then, type make.
+
+That will build a jar that you can use.
+
