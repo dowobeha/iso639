@@ -1,3 +1,11 @@
+At times, it would be nice to have Java a class to represent the ISO 639-3 code of a text.
+
+Unfortunately, Java imposes limitations on method size that can potentially make implementing such a class problematic.
+
+This code is a workaround for those limitations.
+
+
+
 First, download http://www.sil.org/iso639-3/iso-639-3_20120206.tab and place the file iso-639-3_20120206.tab in this directory.
 
 Then, type make.
